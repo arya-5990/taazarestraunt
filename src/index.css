@@ -204,7 +204,7 @@ button {
 }
 
 /* ============================================
-   HERO SECTION
+   HERO SECTION — Scroll-Event Cinematic Reveal
    ============================================ */
 
 .hero {
@@ -230,7 +230,8 @@ button {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: brightness(0.5) saturate(1.2);
+  /* Removed saturate() — it was softening/blurring fine detail */
+  filter: brightness(0.55);
 }
 
 .hero__pattern {
@@ -267,6 +268,50 @@ button {
   box-sizing: border-box;
 }
 
+/* ── Scroll-reveal items ── */
+/* All hero text items start invisible */
+.hero__scroll-item {
+  opacity: 0;
+  transform: translateY(48px);
+  filter: blur(10px);
+  /* Expo-out: snappy start → graceful deceleration — the "Apple" easing */
+  transition:
+    opacity 1.15s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1.15s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+.hero__scroll-item--visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0px);
+}
+
+/* Badge: letter-spacing compresses in as it appears — subtle cinematic touch */
+.hero__badge.hero__scroll-item {
+  letter-spacing: 10px;
+  transition:
+    opacity 1.15s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1.15s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+    letter-spacing 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero__badge.hero__scroll-item--visible {
+  letter-spacing: 5px;
+}
+
+/* Title: slight scale-up adds depth */
+.hero__title.hero__scroll-item {
+  transform: translateY(48px) scale(0.97);
+}
+
+.hero__title.hero__scroll-item--visible {
+  transform: translateY(0) scale(1);
+}
+
+/* Badge */
 .hero__badge {
   display: inline-flex;
   align-items: center;
@@ -277,8 +322,6 @@ button {
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 10px;
-  opacity: 0;
-  animation: heroFadeUp 1s var(--ease-smooth) 0.2s forwards;
 }
 
 .hero__badge-dot {
@@ -303,15 +346,15 @@ button {
   }
 }
 
+/* Accent line */
 .hero__accent {
   width: 60px;
   height: 2px;
   background: linear-gradient(90deg, var(--gold), transparent);
   margin-bottom: 14px;
-  opacity: 0;
-  animation: heroFadeUp 1s var(--ease-smooth) 0.35s forwards;
 }
 
+/* Title */
 .hero__title {
   font-family: var(--font-serif);
   font-size: clamp(2rem, 5.5vw, 5rem);
@@ -319,8 +362,6 @@ button {
   line-height: 1.1;
   color: var(--cream);
   margin-bottom: 14px;
-  opacity: 0;
-  animation: heroFadeUp 1s var(--ease-smooth) 0.5s forwards;
 }
 
 .hero__title span {
@@ -329,22 +370,20 @@ button {
   font-style: italic;
 }
 
+/* Subtitle */
 .hero__subtitle {
   font-size: clamp(0.75rem, 1.5vw, 0.95rem);
   font-weight: 300;
   color: var(--cream-muted);
   letter-spacing: 2px;
   margin-bottom: 24px;
-  opacity: 0;
-  animation: heroFadeUp 1s var(--ease-smooth) 0.7s forwards;
 }
 
+/* CTAs */
 .hero__ctas {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-  opacity: 0;
-  animation: heroFadeUp 1s var(--ease-smooth) 0.9s forwards;
 }
 
 .hero__cta {
@@ -384,7 +423,7 @@ button {
   transform: translateY(-3px);
 }
 
-/* Scroll hint */
+/* ── Scroll hint with progress dots ── */
 .hero__scroll-hint {
   position: absolute;
   bottom: 30px;
@@ -395,8 +434,13 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+
+.hero__scroll-hint--hidden {
   opacity: 0;
-  animation: heroFadeUp 1s var(--ease-smooth) 1.3s forwards;
+  pointer-events: none;
 }
 
 .hero__scroll-hint span {
@@ -413,16 +457,25 @@ button {
   animation: scrollPulse 2s ease-in-out infinite;
 }
 
-@keyframes heroFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
+/* Progress dots */
+.hero__scroll-dots {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.hero__scroll-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(200, 169, 74, 0.25);
+  border: 1px solid rgba(200, 169, 74, 0.4);
+  transition: background 0.4s ease, transform 0.4s ease;
+}
+
+.hero__scroll-dot--active {
+  background: var(--gold);
+  transform: scale(1.3);
 }
 
 @keyframes scrollPulse {
@@ -437,60 +490,6 @@ button {
     opacity: 1;
     transform: scaleY(1);
   }
-}
-
-/* Quick Action Buttons */
-.hero__quick-btns {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  margin-top: 24px;
-  opacity: 0;
-  animation: heroFadeUp 1s var(--ease-smooth) 1.1s forwards;
-  flex-wrap: wrap;
-}
-
-.hero__quick-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  padding: 12px 16px;
-  border-radius: 14px;
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  backdrop-filter: blur(16px);
-  transition: all 0.3s var(--ease-smooth);
-  border: 1px solid var(--glass-border);
-  color: var(--cream);
-  background: rgba(13, 10, 8, 0.6);
-}
-
-.hero__quick-btn:hover {
-  transform: translateY(-3px);
-  border-color: var(--gold-dim);
-}
-
-.hero__quick-btn--whatsapp {
-  background: rgba(37, 211, 102, 0.2);
-  border-color: rgba(37, 211, 102, 0.3);
-}
-
-.hero__quick-btn--whatsapp:hover {
-  background: rgba(37, 211, 102, 0.35);
-  border-color: #25D366;
-}
-
-.hero__quick-btn--call {
-  background: rgba(200, 169, 74, 0.15);
-  border-color: var(--gold-glass-border);
-}
-
-.hero__quick-btn--call:hover {
-  background: var(--gold-glass);
-  border-color: var(--gold);
 }
 
 /* Smoke Particles */
@@ -1047,10 +1046,11 @@ button {
   background: rgba(30, 28, 14, 0.8);
   border: 1px solid rgba(90, 107, 58, 0.25);
   border-radius: 18px;
-  padding: 24px 22px;
+  overflow: hidden;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 0;
   transition: transform 0.4s var(--ease-smooth), border-color 0.4s, box-shadow 0.4s;
 }
 
@@ -1060,9 +1060,38 @@ button {
   box-shadow: 0 16px 40px rgba(90, 107, 58, 0.15);
 }
 
+/* Image */
+.breakfast-card__img-wrap {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.breakfast-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s var(--ease-smooth);
+}
+
+.breakfast-card:hover .breakfast-card__img {
+  transform: scale(1.06);
+}
+
+.breakfast-card__img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+      rgba(20, 22, 10, 0.8) 0%,
+      transparent 60%);
+}
 
 .breakfast-card__body {
   flex: 1;
+  padding: 16px 18px 0;
 }
 
 .breakfast-card__name {
@@ -1084,6 +1113,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 14px 18px 18px;
 }
 
 .breakfast-card__price {
@@ -1228,10 +1258,13 @@ button {
   background: var(--midnight-elevated);
   border: 1px solid var(--glass-border);
   border-radius: 18px;
-  padding: 22px 20px;
+  overflow: hidden;
+  /* clip the image to rounded corners */
+  padding: 0;
+  /* image sits flush at top */
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0;
   transition: transform 0.4s var(--ease-smooth), border-color 0.4s, box-shadow 0.4s;
 }
 
@@ -1241,11 +1274,43 @@ button {
   box-shadow: 0 14px 36px rgba(200, 169, 74, 0.1);
 }
 
+/* Image block */
+.menu-item-card__img-wrap {
+  position: relative;
+  width: 100%;
+  height: 170px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.menu-item-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s var(--ease-smooth);
+}
+
+.menu-item-card:hover .menu-item-card__img {
+  transform: scale(1.06);
+}
+
+.menu-item-card__img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+      rgba(13, 10, 8, 0.75) 0%,
+      transparent 60%);
+}
+
+/* Text area below image */
 .menu-item-card__top {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  padding: 16px 18px 0;
 }
+
 
 .menu-item-card__name {
   font-family: var(--font-serif);
@@ -1311,6 +1376,7 @@ button {
   font-weight: 300;
   line-height: 1.6;
   flex: 1;
+  padding: 10px 18px 0;
 }
 
 .menu-item-card__footer {
@@ -1318,6 +1384,7 @@ button {
   align-items: center;
   justify-content: space-between;
   margin-top: auto;
+  padding: 14px 18px 18px;
 }
 
 .menu-item-card__price {

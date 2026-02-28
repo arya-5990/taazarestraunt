@@ -11,34 +11,34 @@ const categories = [
 
 const menuData = {
     shawarma: [
-        { name: 'Saj Shawarma', desc: 'Wrapped in saj flatbread with garlic sauce, pickles & veggies', price: '₹199', tags: ['non-veg'] },
-        { name: 'Classic Chicken Shawarma', desc: 'Juicy chicken strips with tahini in fresh pita', price: '₹149', tags: ['non-veg', 'bestseller'] },
-        { name: 'Falafel Shawarma', desc: 'Crispy falafel with hummus, tomatoes, cucumber in fresh pita', price: '₹129', tags: ['veg', 'healthy'] },
-        { name: 'Double Meat Shawarma', desc: 'Chicken & beef combo with premium toppings', price: '₹249', tags: ['non-veg'] },
+        { name: 'Saj Shawarma', desc: 'Wrapped in saj flatbread with garlic sauce, pickles & veggies', price: '₹199', tags: ['non-veg'], image: '/images/saj-shawarma.png' },
+        { name: 'Classic Chicken Shawarma', desc: 'Juicy chicken strips with tahini in fresh pita', price: '₹149', tags: ['non-veg', 'bestseller'], image: '/images/shawarma-falafel.png' },
+        { name: 'Falafel Shawarma', desc: 'Crispy falafel with hummus, tomatoes, cucumber in fresh pita', price: '₹129', tags: ['veg', 'healthy'], image: '/images/shawarma-falafel.png' },
+        { name: 'Double Meat Shawarma', desc: 'Chicken & beef combo with premium toppings', price: '₹249', tags: ['non-veg'], image: '/images/hero-platter.png' },
     ],
     grills: [
-        { name: 'Mandi / Mixed Grill Platter', desc: 'Saffron rice with slow-cooked mixed grills — serves 2', price: '₹499', tags: ['non-veg'] },
-        { name: 'Fish Tikka', desc: 'Marinated fish fillets, grilled to perfection in our tandoor', price: '₹279', tags: ['non-veg', 'new'] },
-        { name: 'Chicken Dynamite', desc: 'Crispy fried chicken in our signature fiery dynamite sauce', price: '₹249', tags: ['non-veg', 'spicy'] },
-        { name: 'Seekh Kebab', desc: 'Minced lamb & chicken kebabs grilled on skewers with spices', price: '₹299', tags: ['non-veg'] },
+        { name: 'Mandi / Mixed Grill Platter', desc: 'Saffron rice with slow-cooked mixed grills — serves 2', price: '₹499', tags: ['non-veg'], image: '/images/mandi-platter.png' },
+        { name: 'Fish Tikka', desc: 'Marinated fish fillets, grilled to perfection in our tandoor', price: '₹279', tags: ['non-veg', 'new'], image: '/images/fish-tikka.png' },
+        { name: 'Chicken Dynamite', desc: 'Crispy fried chicken in our signature fiery dynamite sauce', price: '₹249', tags: ['non-veg', 'spicy'], image: '/images/chicken-dynamite.png' },
+        { name: 'Seekh Kebab', desc: 'Minced lamb & chicken kebabs grilled on skewers with spices', price: '₹299', tags: ['non-veg'], image: '/images/tandoori-grills.png' },
     ],
     'small-plates': [
-        { name: 'Hummus & Pita', desc: 'House-made creamy hummus with freshly baked pita', price: '₹149', tags: ['veg', 'healthy'] },
-        { name: 'Falafel Platter', desc: 'Crispy falafel balls with tahini dip and fresh salad', price: '₹169', tags: ['veg'] },
-        { name: 'Fattoush Salad', desc: 'Fresh greens, tomatoes, cucumber & toasted pita croutons', price: '₹139', tags: ['veg', 'healthy'] },
-        { name: 'Samosa (3 pcs)', desc: 'Crispy golden Arabic-style samosas with mint chutney', price: '₹99', tags: ['veg'] },
+        { name: 'Hummus & Pita', desc: 'House-made creamy hummus with freshly baked pita', price: '₹149', tags: ['veg', 'healthy'], image: '/images/hero-platter.png' },
+        { name: 'Falafel Platter', desc: 'Crispy falafel balls with tahini dip and fresh salad', price: '₹169', tags: ['veg'], image: '/images/shawarma-falafel.png' },
+        { name: 'Fattoush Salad', desc: 'Fresh greens, tomatoes, cucumber & toasted pita croutons', price: '₹139', tags: ['veg', 'healthy'], image: '/images/saj-shawarma.png' },
+        { name: 'Samosa (3 pcs)', desc: 'Crispy golden Arabic-style samosas with mint chutney', price: '₹99', tags: ['veg'], image: '/images/hero-platter.png' },
     ],
     combos: [
-        { name: 'Family Feast (4 pax)', desc: 'Mandi + 4 Shawarmas + Drinks + Dessert', price: '₹999', tags: ['non-veg', 'bestseller'] },
-        { name: 'Couple Combo', desc: '2 Shawarmas + 2 drinks + 1 dessert plate', price: '₹449', tags: ['non-veg'] },
-        { name: 'Solo Pack', desc: '1 Shawarma + Fries + 1 Drink', price: '₹249', tags: ['non-veg'] },
-        { name: 'Veg Combo', desc: 'Falafel Wrap + Hummus Pita + Fresh Lemonade', price: '₹299', tags: ['veg', 'healthy'] },
+        { name: 'Family Feast (4 pax)', desc: 'Mandi + 4 Shawarmas + Drinks + Dessert', price: '₹999', tags: ['non-veg', 'bestseller'], image: '/images/mandi-platter.png' },
+        { name: 'Couple Combo', desc: '2 Shawarmas + 2 drinks + 1 dessert plate', price: '₹449', tags: ['non-veg'], image: '/images/shawarma-falafel.png' },
+        { name: 'Solo Pack', desc: '1 Shawarma + Fries + 1 Drink', price: '₹249', tags: ['non-veg'], image: '/images/saj-shawarma.png' },
+        { name: 'Veg Combo', desc: 'Falafel Wrap + Hummus Pita + Fresh Lemonade', price: '₹299', tags: ['veg', 'healthy'], image: '/images/hero-platter.png' },
     ],
     beverages: [
-        { name: 'Fresh Lemonade', desc: 'Zesty fresh-squeezed lemonade with mint', price: '₹79', tags: ['veg', 'healthy'] },
-        { name: 'Arabic Qahwa', desc: 'Traditional Arabic spiced coffee with cardamom', price: '₹99', tags: ['veg'] },
-        { name: 'Mango Lassi', desc: 'Thick, creamy mango yoghurt drink', price: '₹89', tags: ['veg'] },
-        { name: 'Virgin Mojito', desc: 'Fresh mint, lime & soda — perfectly refreshing', price: '₹99', tags: ['veg'] },
+        { name: 'Fresh Lemonade', desc: 'Zesty fresh-squeezed lemonade with mint', price: '₹79', tags: ['veg', 'healthy'], image: '/images/hero-platter.png' },
+        { name: 'Arabic Qahwa', desc: 'Traditional Arabic spiced coffee with cardamom', price: '₹99', tags: ['veg'], image: '/images/interior-marble.png' },
+        { name: 'Mango Lassi', desc: 'Thick, creamy mango yoghurt drink', price: '₹89', tags: ['veg'], image: '/images/hero-platter.png' },
+        { name: 'Virgin Mojito', desc: 'Fresh mint, lime & soda — perfectly refreshing', price: '₹99', tags: ['veg'], image: '/images/hero-platter.png' },
     ],
 };
 
@@ -108,6 +108,18 @@ export default function MenuPreview() {
                 ) : (
                     filteredItems.map((item, i) => (
                         <div className={`menu-item-card reveal delay-${(i % 4) + 1}`} key={`${activeTab}-${i}`}>
+
+                            {/* Food image */}
+                            <div className="menu-item-card__img-wrap">
+                                <img
+                                    src={item.image}
+                                    alt={item.name}
+                                    className="menu-item-card__img"
+                                    loading="lazy"
+                                />
+                                <div className="menu-item-card__img-overlay" />
+                            </div>
+
                             <div className="menu-item-card__top">
                                 <h3 className="menu-item-card__name">{item.name}</h3>
                                 <div className="menu-item-card__tags">
