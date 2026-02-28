@@ -7,8 +7,6 @@ const dishes = [
         desc: 'Slow-grilled chicken wrapped in crisp saj bread with garlic sauce & pickles',
         image: '/images/saj-shawarma.png',
         badge: 'Signature',
-        tag: 'non-veg',
-        chefPick: true,
         price: '₹199',
     },
     {
@@ -17,18 +15,14 @@ const dishes = [
         desc: 'Crispy fried chicken tossed in our fiery secret dynamite sauce',
         image: '/images/chicken-dynamite.png',
         badge: 'Signature',
-        tag: 'non-veg',
-        chefPick: false,
         price: '₹249',
     },
     {
         id: 3,
         name: 'Fish Tikka',
-        desc: 'New grilled marinated fish tikka with aromatic spices & mint chutney',
-        image: '/images/tandoori-grills.png',
+        desc: 'Grilled marinated fish tikka with aromatic spices & mint chutney',
+        image: '/images/fish-tikka.png',
         badge: 'New',
-        tag: 'non-veg',
-        chefPick: false,
         price: '₹279',
     },
     {
@@ -37,22 +31,9 @@ const dishes = [
         desc: 'Saffron-infused slow-cooked rice topped with premium mixed grills',
         image: '/images/mandi-platter.png',
         badge: 'Signature',
-        tag: 'non-veg',
-        chefPick: false,
         price: '₹499',
     },
 ];
-
-function ChefBadge() {
-    return (
-        <div className="chef-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
-            </svg>
-            Chef's Pick
-        </div>
-    );
-}
 
 export default function SignatureDishes() {
     const headerRef = useReveal();
@@ -64,7 +45,6 @@ export default function SignatureDishes() {
 
     return (
         <section className="signature-dishes" id="dishes">
-            {/* Arabic Pattern BG */}
             <div className="signature-dishes__pattern" />
 
             <div className="signature-dishes__header reveal" ref={headerRef}>
@@ -73,7 +53,7 @@ export default function SignatureDishes() {
                     Signature <em>Dishes</em>
                 </h2>
                 <p className="signature-dishes__subtitle">
-                    Crafted with love, served with passion — each dish tells a story of authentic Arabic flavour
+                    Crafted with care, served with pride — authentic Arabic flavour in every bite
                 </p>
             </div>
 
@@ -92,21 +72,11 @@ export default function SignatureDishes() {
                                 loading="lazy"
                             />
                             <div className="dish-card__image-overlay" />
-
-                            {/* Badges */}
                             <div className="dish-card__badges">
                                 <span className={`dish-badge dish-badge--${dish.badge.toLowerCase()}`}>
-                                    {dish.badge === 'Signature' && '✦ '}
                                     {dish.badge}
                                 </span>
-                                {dish.tag === 'veg' ? (
-                                    <span className="dish-badge dish-badge--veg">🟢 Veg</span>
-                                ) : (
-                                    <span className="dish-badge dish-badge--nonveg">🔴 Non-Veg</span>
-                                )}
                             </div>
-
-                            {dish.chefPick && <ChefBadge />}
                         </div>
 
                         <div className="dish-card__body">

@@ -25,7 +25,7 @@ export default function CTABanner() {
                 </p>
                 <div className="cta-banner__btns">
                     <button className="cta-banner__btn cta-banner__btn--primary" onClick={handleOrder} id="cta-order-btn">
-                        <span>🛒</span> Order Now
+                        Order Now
                     </button>
                     <button className="cta-banner__btn cta-banner__btn--secondary" onClick={handleTable} id="cta-table-btn">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">

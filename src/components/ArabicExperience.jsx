@@ -1,10 +1,10 @@
 import { useReveal } from '../hooks/useReveal';
 
 const badges = [
-    { icon: '👨‍👩‍👧‍👦', label: 'Family Friendly' },
-    { icon: '🎉', label: 'Special Occasions' },
-    { icon: '🌙', label: 'Late Night Dining' },
-    { icon: '🥗', label: 'Healthy Options' },
+    { label: 'Family Friendly' },
+    { label: 'Special Occasions' },
+    { label: 'Late Night Dining' },
+    { label: 'Healthy Options' },
 ];
 
 export default function ArabicExperience() {
@@ -24,7 +24,6 @@ export default function ArabicExperience() {
                             loading="lazy"
                         />
                         <div className="experience__image-overlay" />
-                        {/* Floating stat cards */}
                         <div className="experience__stat experience__stat--1">
                             <span className="experience__stat-number">4.8★</span>
                             <span className="experience__stat-label">Google Rating</span>
@@ -35,7 +34,6 @@ export default function ArabicExperience() {
                         </div>
                     </div>
 
-                    {/* Second image stacked */}
                     <div className="experience__image-secondary">
                         <img
                             src="/images/interior-marble.png"
@@ -59,16 +57,14 @@ export default function ArabicExperience() {
                     </p>
                     <p className="experience__desc">
                         Perfect for birthday dinners, family gatherings, or a late-night
-                        craving — our Instagram-worthy corners and inviting atmosphere make
-                        every visit unforgettable.
+                        craving — our inviting atmosphere makes every visit unforgettable.
                     </p>
 
-                    {/* Badge grid */}
                     <div className="experience__badges">
                         {badges.map((b, i) => (
                             <div className="experience__badge-item" key={i}>
-                                <span className="experience__badge-icon">{b.icon}</span>
-                                <span className="experience__badge-text">✔ {b.label}</span>
+                                <span className="experience__badge-check">—</span>
+                                <span className="experience__badge-text">{b.label}</span>
                             </div>
                         ))}
                     </div>

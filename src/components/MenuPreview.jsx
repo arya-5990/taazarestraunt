@@ -2,19 +2,19 @@ import { useState } from 'react';
 import { useReveal, useRevealGroup } from '../hooks/useReveal';
 
 const categories = [
-    { id: 'shawarma', label: '🌯 Shawarma', emoji: '🌯' },
-    { id: 'grills', label: '🔥 Grills', emoji: '🔥' },
-    { id: 'small-plates', label: '🥗 Small Plates', emoji: '🥗' },
-    { id: 'combos', label: '🎁 Combos', emoji: '🎁' },
-    { id: 'beverages', label: '🥤 Beverages', emoji: '🥤' },
+    { id: 'shawarma', label: 'Shawarma' },
+    { id: 'grills', label: 'Grills' },
+    { id: 'small-plates', label: 'Small Plates' },
+    { id: 'combos', label: 'Combos' },
+    { id: 'beverages', label: 'Beverages' },
 ];
 
 const menuData = {
     shawarma: [
         { name: 'Saj Shawarma', desc: 'Wrapped in saj flatbread with garlic sauce, pickles & veggies', price: '₹199', tags: ['non-veg'] },
-        { name: 'Classic Chicken Shawarma', desc: 'The crowd favourite — juicy chicken strips with tahini in pita', price: '₹149', tags: ['non-veg', 'bestseller'] },
+        { name: 'Classic Chicken Shawarma', desc: 'Juicy chicken strips with tahini in fresh pita', price: '₹149', tags: ['non-veg', 'bestseller'] },
         { name: 'Falafel Shawarma', desc: 'Crispy falafel with hummus, tomatoes, cucumber in fresh pita', price: '₹129', tags: ['veg', 'healthy'] },
-        { name: 'Double Meat Shawarma', desc: 'Chicken + beef combo with premium toppings — for the hungry soul', price: '₹249', tags: ['non-veg'] },
+        { name: 'Double Meat Shawarma', desc: 'Chicken & beef combo with premium toppings', price: '₹249', tags: ['non-veg'] },
     ],
     grills: [
         { name: 'Mandi / Mixed Grill Platter', desc: 'Saffron rice with slow-cooked mixed grills — serves 2', price: '₹499', tags: ['non-veg'] },
@@ -29,9 +29,9 @@ const menuData = {
         { name: 'Samosa (3 pcs)', desc: 'Crispy golden Arabic-style samosas with mint chutney', price: '₹99', tags: ['veg'] },
     ],
     combos: [
-        { name: 'Family Feast (4 pax)', desc: 'Mandi + 4 Shawarmas + Drinks + Dessert — the perfect spread', price: '₹999', tags: ['non-veg', 'bestseller'] },
+        { name: 'Family Feast (4 pax)', desc: 'Mandi + 4 Shawarmas + Drinks + Dessert', price: '₹999', tags: ['non-veg', 'bestseller'] },
         { name: 'Couple Combo', desc: '2 Shawarmas + 2 drinks + 1 dessert plate', price: '₹449', tags: ['non-veg'] },
-        { name: 'Solo Pack', desc: '1 Shawarma + Fries + 1 Drink — a complete meal', price: '₹249', tags: ['non-veg'] },
+        { name: 'Solo Pack', desc: '1 Shawarma + Fries + 1 Drink', price: '₹249', tags: ['non-veg'] },
         { name: 'Veg Combo', desc: 'Falafel Wrap + Hummus Pita + Fresh Lemonade', price: '₹299', tags: ['veg', 'healthy'] },
     ],
     beverages: [
@@ -43,12 +43,12 @@ const menuData = {
 };
 
 const tagConfig = {
-    veg: { label: '🟢 Veg', class: 'tag--veg' },
-    'non-veg': { label: '🔴 Non-Veg', class: 'tag--nonveg' },
-    bestseller: { label: '⭐ Bestseller', class: 'tag--bestseller' },
-    healthy: { label: '💚 Healthy', class: 'tag--healthy' },
-    new: { label: '✨ New', class: 'tag--new' },
-    spicy: { label: '🌶 Spicy', class: 'tag--spicy' },
+    veg: { label: 'Veg', class: 'tag--veg' },
+    'non-veg': { label: 'Non-Veg', class: 'tag--nonveg' },
+    bestseller: { label: 'Bestseller', class: 'tag--bestseller' },
+    healthy: { label: 'Healthy', class: 'tag--healthy' },
+    new: { label: 'New', class: 'tag--new' },
+    spicy: { label: 'Spicy', class: 'tag--spicy' },
 };
 
 export default function MenuPreview() {
@@ -126,7 +126,7 @@ export default function MenuPreview() {
                                     onClick={handleOrder}
                                     id={`menu-order-${activeTab}-${i}`}
                                 >
-                                    Order →
+                                    Order
                                 </button>
                             </div>
                         </div>

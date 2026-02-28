@@ -212,9 +212,9 @@ button {
   width: 100%;
   max-width: 100vw;
   height: 100vh;
-  min-height: 650px;
+  min-height: 560px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-start;
   overflow: hidden;
 }
@@ -261,7 +261,7 @@ button {
 .hero__content {
   position: relative;
   z-index: 5;
-  padding: 0 clamp(16px, 5vw, 80px) clamp(60px, 10vh, 120px);
+  padding: clamp(20px, 4vh, 60px) clamp(16px, 5vw, 80px);
   max-width: min(820px, 100vw);
   width: 100%;
   box-sizing: border-box;
@@ -276,7 +276,7 @@ button {
   letter-spacing: 5px;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 22px;
+  margin-bottom: 10px;
   opacity: 0;
   animation: heroFadeUp 1s var(--ease-smooth) 0.2s forwards;
 }
@@ -307,18 +307,18 @@ button {
   width: 60px;
   height: 2px;
   background: linear-gradient(90deg, var(--gold), transparent);
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   opacity: 0;
   animation: heroFadeUp 1s var(--ease-smooth) 0.35s forwards;
 }
 
 .hero__title {
   font-family: var(--font-serif);
-  font-size: clamp(2.8rem, 7.5vw, 6rem);
+  font-size: clamp(2rem, 5.5vw, 5rem);
   font-weight: 400;
-  line-height: 1.08;
+  line-height: 1.1;
   color: var(--cream);
-  margin-bottom: 22px;
+  margin-bottom: 14px;
   opacity: 0;
   animation: heroFadeUp 1s var(--ease-smooth) 0.5s forwards;
 }
@@ -330,11 +330,11 @@ button {
 }
 
 .hero__subtitle {
-  font-size: clamp(0.8rem, 1.8vw, 1rem);
+  font-size: clamp(0.75rem, 1.5vw, 0.95rem);
   font-weight: 300;
   color: var(--cream-muted);
   letter-spacing: 2px;
-  margin-bottom: 36px;
+  margin-bottom: 24px;
   opacity: 0;
   animation: heroFadeUp 1s var(--ease-smooth) 0.7s forwards;
 }
@@ -351,10 +351,10 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 16px 32px;
+  padding: 13px 28px;
   border-radius: 50px;
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.5px;
   transition: all 0.35s var(--ease-smooth);
@@ -924,8 +924,12 @@ button {
   border-color: var(--gold-dim);
 }
 
-.experience__badge-icon {
-  font-size: 1.3rem;
+.experience__badge-check {
+  font-size: 1rem;
+  color: var(--gold);
+  font-weight: 700;
+  line-height: 1;
+  flex-shrink: 0;
 }
 
 .experience__badge-text {
@@ -1056,10 +1060,6 @@ button {
   box-shadow: 0 16px 40px rgba(90, 107, 58, 0.15);
 }
 
-.breakfast-card__icon {
-  font-size: 2.2rem;
-  line-height: 1;
-}
 
 .breakfast-card__body {
   flex: 1;
@@ -1555,16 +1555,15 @@ button {
   transform: translateY(-5px);
 }
 
-.service-card__icon {
-  font-size: 2rem;
-  line-height: 1;
-}
-
 .service-card__title {
   font-family: var(--font-serif);
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--cream);
+  padding-top: 8px;
+  border-top: 1px solid var(--gold-dim);
+  width: 100%;
+  text-align: center;
 }
 
 .service-card__desc {
@@ -1946,9 +1945,6 @@ button {
     justify-content: flex-start;
   }
 
-  .hero__content {
-    padding-bottom: clamp(60px, 10vh, 100px);
-  }
 
   .experience__badges {
     grid-template-columns: 1fr;

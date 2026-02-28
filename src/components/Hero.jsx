@@ -52,7 +52,7 @@ export default function Hero() {
 
                 <div className="hero__ctas">
                     <button className="hero__cta hero__cta--primary" onClick={handleOrder} id="hero-order-btn">
-                        <span>🛒</span> Order Online
+                        Order Online
                     </button>
                     <button className="hero__cta hero__cta--secondary" onClick={handleReserve} id="hero-reserve-btn">
                         Reserve a Table
