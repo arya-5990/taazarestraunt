@@ -1,4 +1,5 @@
 import { useReveal, useRevealGroup } from '../hooks/useReveal';
+
 const galleryItems = [
     {
         id: 1,
