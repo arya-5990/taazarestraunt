@@ -11,7 +11,7 @@ const testimonials = [
     },
     {
         id: 2,
-        quote: 'The chicken is perfectly cooked and juicy. Their English Breakfast is a game-changer — best I\'ve had in Indore, hands down.',
+        quote: 'The chicken shawarma is perfectly cooked and juicy. Their Mandi Platter is a game-changer — best I\'ve had in Indore, hands down.',
         author: 'Meera S.',
         source: 'Zomato',
         initial: 'M',
@@ -19,7 +19,7 @@ const testimonials = [
     },
     {
         id: 3,
-        quote: 'Incredible shawarma, cozy interiors, and the staff goes above and beyond. This place feels like a hidden gem in Vijay Nagar.',
+        quote: 'Incredible saj shawarma, cozy interiors, and the staff goes above and beyond. This place feels like a hidden gem in Vijay Nagar.',
         author: 'Rohan P.',
         source: 'Google Reviews',
         initial: 'R',
@@ -27,10 +27,22 @@ const testimonials = [
     },
 ];
 
-function StarIcon() {
+function StarIcon({ half = false }) {
     return (
         <svg className="testimonial-card__star" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            {half ? (
+                <>
+                    <defs>
+                        <linearGradient id="halfStar">
+                            <stop offset="50%" stopColor="currentColor" />
+                            <stop offset="50%" stopColor="rgba(255,255,255,0.15)" />
+                        </linearGradient>
+                    </defs>
+                    <path fill="url(#halfStar)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </>
+            ) : (
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            )}
         </svg>
     );
 }
@@ -45,10 +57,20 @@ export default function SocialProof() {
             <div className="testimonials__deco testimonials__deco--2" />
 
             <div className="testimonials__header reveal" ref={headerRef}>
-                <span className="section-label">What People Say</span>
+                <span className="section-label">Social Proof</span>
                 <h2 className="section-title">
-                    Words from <em>Our Guests</em>
+                    Loved by <em>Vijay Nagar Foodies</em>
                 </h2>
+
+                {/* Rating Badge */}
+                <div className="testimonials__rating">
+                    <span className="testimonials__rating-score">4.8★</span>
+                    <div className="testimonials__rating-stars">
+                        {[1, 2, 3, 4].map(i => <StarIcon key={i} />)}
+                        <StarIcon half={false} />
+                    </div>
+                    <span className="testimonials__rating-label">Based on 500+ reviews</span>
+                </div>
             </div>
 
             <div className="testimonials__grid" ref={gridRef}>

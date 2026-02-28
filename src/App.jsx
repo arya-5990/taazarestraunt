@@ -1,8 +1,11 @@
 import Hero from './components/Hero'
-import LiveMenu from './components/LiveMenu'
-import VibeGallery from './components/VibeGallery'
+import SignatureDishes from './components/SignatureDishes'
+import ArabicExperience from './components/ArabicExperience'
+import BreakfastSection from './components/BreakfastSection'
+import MenuPreview from './components/MenuPreview'
 import SocialProof from './components/SocialProof'
-import StickyBottomBar from './components/StickyBottomBar'
+import ServicesSection from './components/ServicesSection'
+import CTABanner from './components/CTABanner'
 import Footer from './components/Footer'
 import Particles from './components/Particles'
 
@@ -16,11 +19,19 @@ function App() {
 
         <div className="section-divider" />
 
-        <LiveMenu />
+        <SignatureDishes />
 
         <div className="section-divider" />
 
-        <VibeGallery />
+        <ArabicExperience />
+
+        <div className="section-divider" />
+
+        <BreakfastSection />
+
+        <div className="section-divider" />
+
+        <MenuPreview />
 
         <div className="section-divider" />
 
@@ -28,10 +39,14 @@ function App() {
 
         <div className="section-divider" />
 
+        <ServicesSection />
+
+        <div className="section-divider" />
+
+        <CTABanner />
+
         <Footer />
       </main>
-
-      <StickyBottomBar />
     </>
   )
 }
