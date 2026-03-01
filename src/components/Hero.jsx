@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 
 // Stages: 1=badge, 2=accent, 3=title, 4=subtitle, 5=ctas
 const STAGES = 5;
-const STAGE_THROTTLE = 1100; // ms between stage increments — matches CSS transition duration
+const STAGE_THROTTLE = 500; // ms between stage increments — matches CSS transition duration
 
 export default function Hero() {
     const [stage, setStage] = useState(0);
