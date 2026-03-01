@@ -59,7 +59,7 @@ export default function SocialProof() {
             <div className="testimonials__header reveal" ref={headerRef}>
                 <span className="section-label">Social Proof</span>
                 <h2 className="section-title">
-                    Loved by <em>Vijay Nagar Foodies</em>
+                    Loved by <em>Indorie foodies</em>
                 </h2>
 
                 {/* Rating Badge */}

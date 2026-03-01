@@ -1,7 +1,23 @@
+import { useState, useEffect } from 'react';
 import { useReveal } from '../hooks/useReveal';
+
+const STYLES = ['Shawarma', 'Mandi', 'Kebabs', 'Grills', 'Curries'];
 
 export default function CTABanner() {
     const ref = useReveal();
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [fadeClass, setFadeClass] = useState('fade-in');
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setFadeClass('fade-out');
+            setTimeout(() => {
+                setCurrentIndex((prev) => (prev + 1) % STYLES.length);
+                setFadeClass('fade-in');
+            }, 500);
+        }, 2000);
+        return () => clearInterval(interval);
+    }, []);
 
     const handleOrder = () => {
         window.open('https://wa.me/918982664668?text=Hi%20Taaza!%20I%27d%20like%20to%20place%20an%20order.', '_blank');
@@ -17,8 +33,7 @@ export default function CTABanner() {
             <div className="cta-banner__content reveal" ref={ref}>
                 <span className="cta-banner__eyebrow">Ready to eat?</span>
                 <h2 className="cta-banner__title">
-                    Craving Shawarma<br />
-                    <span>Tonight?</span>
+                    Craving <span className={`text-rotate-fade ${fadeClass}`}>{STYLES[currentIndex]}</span> <span>Tonight?</span>
                 </h2>
                 <p className="cta-banner__sub">
                     Fresh off the grill, wrapped with love — available for dine-in, takeout & delivery
